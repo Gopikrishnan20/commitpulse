@@ -34,7 +34,12 @@ export function calculateStreak(
   const todayIndex = localTodayIndex !== -1 ? localTodayIndex : days.length - 1;
 
   if (todayIndex < 0) {
-    return { currentStreak: 0, longestStreak: 0, totalContributions: calendar.totalContributions, todayDate: localTodayStr };
+    return {
+      currentStreak: 0,
+      longestStreak: 0,
+      totalContributions: calendar.totalContributions,
+      todayDate: localTodayStr,
+    };
   }
 
   const today = days[todayIndex];
