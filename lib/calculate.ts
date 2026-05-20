@@ -32,6 +32,11 @@ export function calculateStreak(
   // If the local date isn't in the GitHub data (timezone ahead of UTC, or calendar
   // doesn't extend to today), fall back to the last available day.
   const todayIndex = localTodayIndex !== -1 ? localTodayIndex : days.length - 1;
+
+  if (todayIndex < 0) {
+    return { currentStreak: 0, longestStreak: 0, totalContributions: calendar.totalContributions, todayDate: localTodayStr };
+  }
+
   const today = days[todayIndex];
   const yesterday = todayIndex > 0 ? days[todayIndex - 1] : null;
 
