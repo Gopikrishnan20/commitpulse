@@ -19,7 +19,8 @@ export async function GET(req: NextRequest) {
     totalCommits = stats.totalContributions;
     longestStreak = stats.longestStreak;
     currentStreak = stats.currentStreak;
-  } catch {
+  } catch (err) {
+    console.error('[OG] stats fetch failed:', err);
     // fallback to zeros if GitHub is unreachable
   }
 
